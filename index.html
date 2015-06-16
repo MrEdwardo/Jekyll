@@ -1,0 +1,26 @@
+---
+layout: homepage
+---
+
+<div class="home row">
+
+  <h1 class="col-xs-12 page-heading">Featured Metrics</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <!-- <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span> -->
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+          <div class="post-card">
+            <h2>
+              {{ post.title }}
+            </h2>
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+
+</div>

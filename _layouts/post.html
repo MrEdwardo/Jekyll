@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+<div class="post-page row">
+
+	<div class="col-xs-12 col-sm-2 arrow-container prev-arrow-container">
+		{% if page.next %}
+		<div class="arrow-block">
+			<a href="{{ page.next.url | prepend: site.baseurl }}">
+				<div class="arrow"></div>
+			</a>
+			<a href="{{page.next.url}}">Previous: {{ page.next.title }}</a>
+		</div>
+		{% endif %}
+	</div>
+		
+	<div class="col-xs-12 col-sm-8 post">
+
+	  <header class="post-header">
+	    <h1 class="post-title">{{ page.title }}</h1>
+	    <p class="post-meta">{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+	  </header>
+
+	  <article class="post-content">
+	    {{ content }}
+	  </article>
+
+		{% if page.twitter %}
+		<div class="col-xs-12 col-sm-6 share-quote">
+		  <h3>Share</h3>
+		  "{{ page.twitter }} Read more: <a href="{{ page.url | prepend: site.url }}">
+		  {{ page.url | prepend: site.url }}</a>"<br><br>
+		  <button class="btn btn-primary">Tweet this</button>
+		</div>
+		{% endif %}
+
+	<div class="col-xs-12 col-sm-6 related-links">
+	  <h3>More definitions</h3>
+	  {% if site.related_posts %}
+	  	{% for post in site.related_posts limit:5 %}
+	  		<strong><a href="{{ post.url }}">{{ post.title }}</a></strong><br>
+	  	{% endfor %}
+	  {% endif %} 
+	</div>
+
+	</div>
+
+	<div class="col-xs-12 col-sm-2 arrow-container next-arrow-container">
+		{% if page.previous %}
+			<div class="arrow-block">
+			<a href="{{ page.previous.url | prepend: site.baseurl }}"><div class="arrow"></div></a>
+			<a href="{{page.previous.url}}">Next: {{ page.previous.title }}</a>
+		</div>
+		{% endif %}
+	</div>
+
+</div>
+
+
+
+
+
